@@ -1,16 +1,16 @@
 # 206. Reverse Linked List
 def reverseList(head):
-        current = head
-        prev = None
-        next_node = None
+    current = head
+    prev = None
+    next_node = None
 
-        while current:
-            next_node = current.next
-            current.next = prev
-            prev = current
-            current = next_node
+    while current:
+        next_node = current.next
+        current.next = prev
+        prev = current
+        current = next_node
 
-        return  prev
+    return  prev
 
 
 # 141. Linked List Cycle
