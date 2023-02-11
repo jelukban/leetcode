@@ -10,7 +10,7 @@ def reverseList(head):
         prev = current
         current = next_node
 
-    return  prev
+    return prev
 
 
 # 141. Linked List Cycle
