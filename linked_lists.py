@@ -27,3 +27,14 @@ def hasCycle(head):
         current = current.next
 
     return False
+
+
+# 21. Merge Two Sorted Lists
+def mergedTwoListsRecursive_two(list1, list2):
+    if not list1:
+        return list2
+    if not list2:
+        return list1
+    if list1.val < list2.val:
+        return ListNode(list1.val, mergedTwoListsRecursive_two(list1.next, list2))
+    return ListNode(list2.val, mergedTwoListsRecursive_two(list1, list2.next))
