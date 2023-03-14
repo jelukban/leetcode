@@ -15,3 +15,31 @@ class MyQueue:
 
     def empty(self):
         return len(self.queue) == 0
+
+
+# 20. Valid Parentheses
+def isValid(self, s: str) -> bool:
+    parentheses = []
+    balanced = True
+    idx = 0
+
+    while idx < len(s) and balanced:
+        symbol = s[idx]
+
+        if symbol in '([{':
+            parentheses.append(symbol)
+        elif parentheses and symbol in ')' and parentheses[-1] == '(':
+            parentheses.pop()
+        elif parentheses and symbol in ']' and parentheses[-1] == '[':
+            parentheses.pop()
+        elif parentheses and symbol in '}' and parentheses[-1] == '{':
+            parentheses.pop()
+        else:
+            balanced = False
+
+        idx += 1
+
+    if balanced and len(parentheses) == 0:
+        return True
+    else:
+        return False
