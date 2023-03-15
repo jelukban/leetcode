@@ -3,7 +3,7 @@ def maxDepth(root):
     if root == None:
         return 0
 
-    return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
+    return 1 + max(maxDepth(root.left), maxDepth(root.right))
 
 
 # 98. Validate Binary Search Trees
@@ -20,3 +20,17 @@ def isValidBST_impl(root, min_val, max_val):
 
     return (isValidBST_impl(root.left, min_val, root.val) and
             isValidBST_impl(root.right, root.val, max_val))
+
+# 111. Minimum Depth of Binary Tree
+
+
+def minDepth(root):
+    if root == None:
+        return 0
+
+    if root.left and root.right:
+        return 1 + min(minDepth(root.left), minDepth(root.right))
+    elif root.left == None:
+        return 1 + minDepth(root.right)
+    elif root.right == None:
+        return 1 + minDepth(root.left)
