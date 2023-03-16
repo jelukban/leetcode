@@ -62,3 +62,12 @@ def isPalindrome(s):
             s_list.append(char)
 
     return s_list == s_list[::-1]
+
+
+# 268. Missing Number
+def missingNumber(nums):
+    nums.sort()
+
+    for i in range(0, len(nums) + 1):
+        if i not in nums:
+            return i
