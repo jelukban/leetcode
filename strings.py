@@ -27,6 +27,8 @@ def largeGroupPositions(s):
     return large_groups
 
     # A cleaner, preferred way
+
+
 def largeGroupPositionsAlternative(s):
     large_groups = []
     start = 0
@@ -39,6 +41,8 @@ def largeGroupPositionsAlternative(s):
     return large_groups
 
 # 242. Valid Anagram
+
+
 def isAnagram(s, t):
     s_lst = list(s)
     t_lst = list(t)
@@ -47,3 +51,14 @@ def isAnagram(s, t):
     t_lst.sort()
 
     return s_lst == t_lst
+
+
+# 225. Valid Palindrome
+def isPalindrome(s):
+    s_list = []
+
+    for char in s.lower():
+        if char in 'abcdefghijklmnopqrstuvwxyz0123456789':
+            s_list.append(char)
+
+    return s_list == s_list[::-1]
