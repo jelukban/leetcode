@@ -41,3 +41,21 @@ def inorderTraversal(root):
         return inorderTraversal(root.left) + [root.val] + inorderTraversal(root.right)
 
     return []
+
+
+# 230. Kth Smallest Element in BST
+def kthSmallest(root, k):
+    values = []
+    to_visit = [root]
+
+    while to_visit:
+        current = to_visit.pop()
+        values.append(current.val)
+
+        if current.left:
+            to_visit.append(current.left)
+        if current.right:
+            to_visit.append(current.right)
+
+    values.sort()
+    return values[k-1]
