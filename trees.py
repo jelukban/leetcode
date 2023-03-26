@@ -21,9 +21,8 @@ def isValidBST_impl(root, min_val, max_val):
     return (isValidBST_impl(root.left, min_val, root.val) and
             isValidBST_impl(root.right, root.val, max_val))
 
+
 # 111. Minimum Depth of Binary Tree
-
-
 def minDepth(root):
     if root == None:
         return 0
@@ -34,3 +33,11 @@ def minDepth(root):
         return 1 + minDepth(root.right)
     elif root.right == None:
         return 1 + minDepth(root.left)
+
+
+# 94. Binary Tree Inorder Traversal
+def inorderTraversal(root):
+    if root:
+        return inorderTraversal(root.left) + [root.val] + inorderTraversal(root.right)
+
+    return []
