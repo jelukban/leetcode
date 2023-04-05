@@ -59,3 +59,43 @@ def kthSmallest(root, k):
 
     values.sort()
     return values[k-1]
+
+
+# 101. Symmetric Tree
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+def isSymmetric(root):
+    symmetricTree = flipTree(root)
+
+    return treesAreEqual(root, symmetricTree)
+
+
+def flipTree(root, new_tree_root=None, new_tree=None):
+    if new_tree is None:
+        new_tree = TreeNode(root.val)
+        new_tree_root = new_tree
+
+    if root.left:
+        new_tree.right = TreeNode(root.left.val)
+        flipTree(root.left, new_tree_root, new_tree.right)
+    if root.right:
+        new_tree.left = TreeNode(root.right.val)
+        flipTree(root.right, new_tree_root, new_tree.left)
+
+    return new_tree_root
+
+
+def treesAreEqual(self, tree1, tree2):
+    if tree1 is None:
+        return tree2 is None
+    if tree2 is None:
+        return False
+    if tree1.val != tree2.val:
+        return False
+
+    return treesAreEqual(tree1.left, tree2.left) and treesAreEqual(tree1.right, tree2.right)
