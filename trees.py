@@ -75,19 +75,11 @@ def isSymmetric(root):
     return treesAreEqual(root, symmetricTree)
 
 
-def flipTree(root, new_tree_root=None, new_tree=None):
-    if new_tree is None:
-        new_tree = TreeNode(root.val)
-        new_tree_root = new_tree
+def flipTree(tree):
+    if tree is None:
+        return tree
 
-    if root.left:
-        new_tree.right = TreeNode(root.left.val)
-        flipTree(root.left, new_tree_root, new_tree.right)
-    if root.right:
-        new_tree.left = TreeNode(root.right.val)
-        flipTree(root.right, new_tree_root, new_tree.left)
-
-    return new_tree_root
+    return TreeNode(tree.val, flipTree(tree.right), flipTree(tree.left))
 
 
 def treesAreEqual(self, tree1, tree2):
