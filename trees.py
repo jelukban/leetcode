@@ -91,3 +91,15 @@ def treesAreEqual(self, tree1, tree2):
         return False
 
     return treesAreEqual(tree1.left, tree2.left) and treesAreEqual(tree1.right, tree2.right)
+
+
+# 100. Same Tree
+def isSameTree(p, q):
+    if p is None:
+        return q is None
+    elif q is None:
+        return False
+    elif p.val != q.val:
+        return False
+
+    return isSameTree(p.left, q.left) and isSameTree(p.right, q.right)
